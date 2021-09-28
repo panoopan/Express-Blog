@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("template/head")%>
+  </head>
+
+  <body>
+    <%- include("template/navbar") %>
+
+    <main class="articles col-md-10 mx-auto" style="margin-top: 80px">
+      <div>
+        <h1><%= article.title %></h1>
+        <div>
+          <a href="/" class="btn btn-info mt-3 float-right">Back</a>
+
+          <% if(username === article.username) { %>
+          <a
+            href="/edit?id=<%= article.id %>"
+            class="btn btn-outline-info m-3 float-right"
+            >Edit</a
+          >
+          <% } %>
+        </div>
+      </div>
+      <div>
+        <p class="text-muted">
+          <a class="text-info" href="/tag?tag=<%= article.tag %> "
+            ># <%= article.tag %></a
+          >
+          <br />
+          <i class="bi-calendar2-week-fill"></i>
+          <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
+        </p>
+        <div style="white-space: pre-line"><%- article.content %></div>
+      </div>
+    </main>
+
+    <%- include("template/bundle") %>
+  </body>
+</html>

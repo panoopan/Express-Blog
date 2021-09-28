@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("template/head")%>
+    <style>
+      .card:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include("template/navbar") %> <%- include("template/banner") %>
+
+    <div class="container">
+      <main class="articles my-3 mx-auto">
+        <div class="row justify-content-center">
+          <% articles.forEach(article => { %>
+          <div
+            class="
+              card
+              bg-dark
+              d-flex
+              flex-column
+              col-md-5 col-lg-3
+              m-2
+              p-0
+              border-white
+            "
+          >
+            <a class="d-block" href="/blog?id=<%= article.id %>">
+              <div class="flex-fill">
+                <img src="<%= article.thumbnail %>" class="card-img-top" />
+              </div>
+            </a>
+            <div class="card-body flex-fill">
+              <a class="text-warning" href="/tag?tag=<%= article.tag %> "
+                ># <%= article.tag %></a
+              >
+              <a
+                class="d-block text-decoration-none"
+                href="/blog?id=<%= article.id %>"
+              >
+                <h5 class="card-title text-light"><%= article.title %></h5>
+              </a>
+              <p class="card-text text-white-50">
+                <i class="bi-calendar2-week-fill"> </i>
+                <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
+                <br />
+              </p>
+            </div>
+          </div>
+          <!-- 無圖片版本
+        <div class="card mb-5 shadow bg-white rounded">
+          <div class="card-header">
+            <h5><%= article.title %></h5>
+          </div>
+          <div class="card-body">
+            <div>
+              <p class="card-text text-muted">
+                <i class="bi-calendar2-week-fill"> </i>
+                <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
+                posted by
+                <a href="#"><%= article.username %></a>
+              </p>
+              <div
+                class="card-text overflow-hidden text-truncate text-nowrap"
+                style="max-height: 100px"
+              >
+                <%- article.content %>
+              </div>
+            </div>
+            <div>
+              <a
+                href="/blog?id=<%= article.id %>"
+                class="btn btn-primary mt-3 btn-sm float-right"
+                >READ MORE</a
+              >
+              <% if(username === article.username) { %>
+              <a
+                href="/edit?id=<%= article.id %>"
+                class="btn btn-outline-primary mt-3 mr-3 btn-sm float-right"
+                ><i class="bi-pencil mr-1"></i>編輯</a
+              >
+              <% } %>
+            </div>
+          </div>
+        </div>
+        -->
+          <% }) %>
+        </div>
+      </main>
+    </div>
+
+    <% if(page) { %>
+    <section class="paginator text-center">
+      <div class="d-inline-block text-center mt-2">
+        <ul class="pagination">
+          <% if (page != 1 ) { // 非首頁 %>
+          <li class="page-item">
+            <a class="page-link text-info" href="/list?page=1">首頁</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link text-info"
+              href="/list?page=<%= Number(page) - 1 %>"
+              >上一頁</a
+            >
+          </li>
+          <% } %> <% if (page != totalPage ) { // 非最後一頁%>
+          <li class="page-item">
+            <a
+              class="page-link text-info"
+              href="/list?page=<%= Number(page) + 1 %>"
+              >下一頁</a
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link text-info" href="/list?page=<%= totalPage %>"
+              >最後一頁</a
+            >
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="page-info text-muted mb-5">
+        <span>共 <%= count %> 篇文章，頁數：</span>
+        <span><%= page %> / <%= totalPage %></span>
+      </div>
+    </section>
+    <% } %> <%- include("template/bundle") %>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<% if(username){ %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("template/head")%>
+  </head>
+
+  <body>
+    <%- include("template/navbar") %>
+
+    <div
+      class="col-10 col-md-6 my-5 mx-auto"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+    >
+      <h1 class="text-center">Edit</h1>
+      <section class="error">
+        <% if(errMessage && errMessage.length > 0) { %>
+        <div class="alert alert-danger" role="alert"><%= errMessage %></div>
+        <% } %>
+      </section>
+      <form
+        action="/edit?id=<%= article.id%>"
+        method="POST"
+        class="shadow-lg p-3 pb-5 mb-5 bg-white rounded"
+      >
+        <div class="form-group">
+          Title
+          <input
+            name="title"
+            class="form-control"
+            value="<%= article.title %>"
+          />
+        </div>
+        <!--
+        <div class="form-group">
+          <input name="tag" class="form-control" value="<%= article.tag %>" />
+        </div>
+        -->
+        <div class="form-group">
+          Tag
+          <select name="tag" class="form-control" id="tag">
+            <option 
+              <% if(article.tag === "生活雜談") { %> 
+                <%= "selected" %> 
+              <% } %>>生活雜談
+            </option>
+            <option 
+            <% if(article.tag === "那些貓") { %> 
+              <%= "selected" %> 
+            <% } %>>那些貓
+          </option>
+          <option 
+          <% if(article.tag === "Lego") { %> 
+            <%= "selected" %> 
+          <% } %>>Lego
+        </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          URL
+          <input
+            name="thumbnail"
+            class="form-control"
+            value="<%= article.thumbnail %>"
+          />
+        </div>
+        <div class="form-group">
+          <textarea name="content" rows="20" class="form-control">
+            <%- article.content %>
+          </textarea>
+        </div>
+        <button type="submit" class="btn btn-info float-right">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <script>
+      CKEDITOR.replace("content", {
+        enterMode: CKEDITOR.ENTER_BR,
+        shiftEnterMode: CKEDITOR.ENTER_P,
+        removeButtons: "PasteFromWord",
+      });
+    </script>
+
+    <%- include("template/bundle") %>
+  </body>
+</html>
+
+<% } %>
