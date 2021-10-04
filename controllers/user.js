@@ -54,7 +54,7 @@ const userController = {
   handleRegister: (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
-      req.flash("errMessage", "缺少必要欄位");
+      req.flash("errMessage", "註冊功能未開放");
       return res.redirect("back");
     }
 
