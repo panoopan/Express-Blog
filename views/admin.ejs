@@ -55,32 +55,6 @@
       </div>
       <% }) %>
     </section>
-
-    <!--
-  <div class="container-wrapper">
-    <div class="posts">
-      <% articles.forEach(article => { %> 
-        <div class="admin-post">
-          <div class="admin-post__title">
-            <%= article.title %>
-          </div>
-          <div class="admin-post__info">
-            <div class="admin-post__created-at">
-              <%= (article.createdAt + '').split(' ', 5).join(' ') %>
-            </div>
-            <a class="admin-post__btn" href="/edit?id=<%= article.id %>">
-              編輯
-            </a>
-            <a class="admin-post__btn" href="/delete?id=<%= article.id %>">
-              刪除
-            </a>
-          </div>
-        </div>
-      <% }) %> 
-    </div>
-  </div>
--->
-
     <%- include("template/bundle") %>
   </body>
 </html>

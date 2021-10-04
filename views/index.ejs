@@ -50,43 +50,6 @@
               </p>
             </div>
           </div>
-          <!-- 無圖片版本
-        <div class="card mb-5 shadow bg-white rounded">
-          <div class="card-header">
-            <h5><%= article.title %></h5>
-          </div>
-          <div class="card-body">
-            <div>
-              <p class="card-text text-muted">
-                <i class="bi-calendar2-week-fill"> </i>
-                <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
-                posted by
-                <a href="#"><%= article.username %></a>
-              </p>
-              <div
-                class="card-text overflow-hidden text-truncate text-nowrap"
-                style="max-height: 100px"
-              >
-                <%- article.content %>
-              </div>
-            </div>
-            <div>
-              <a
-                href="/blog?id=<%= article.id %>"
-                class="btn btn-primary mt-3 btn-sm float-right"
-                >READ MORE</a
-              >
-              <% if(username === article.username) { %>
-              <a
-                href="/edit?id=<%= article.id %>"
-                class="btn btn-outline-primary mt-3 mr-3 btn-sm float-right"
-                ><i class="bi-pencil mr-1"></i>編輯</a
-              >
-              <% } %>
-            </div>
-          </div>
-        </div>
-        -->
           <% }) %>
         </div>
       </main>
