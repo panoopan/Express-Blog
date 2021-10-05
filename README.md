@@ -2,7 +2,37 @@
 使用 Bootstrap 搭配後端 Node.js + Express 架設個人部落格，進入首頁即可瀏覽最新發表的文章，導覽列項目包含簡介、所有文章、分類專區功能。管理者登入後可發布文章，並進入管理後台進行編輯、刪除文章之操作。
 
 * [Demo]()
-![](.gif)
+* gif
+
+## Blog 結構
+```
+- 首頁: 顯示最新文章
+    |
+    *-- 關於我
+    |
+    *-- 所有文章 - 分頁顯示所有文章
+    |       |
+    |       *- 點擊文章標題/封面圖片
+    |                 |
+    |                 *- 顯示文章內容
+    |
+    *-- 分類專區 - 顯示所有文章分類
+    |       |
+    |       *- 選擇分類項目
+    |                 |
+    |                 *- 顯示相同分類所有文章
+    |
+    *-- 發布文章 - 使用者登入
+    |       |
+    |       *- 文章撰寫頁面
+    |
+    *-- 管理後台 - 使用者登入
+    |       |
+    |       *- 編輯文章
+    |       *- 刪除文章
+    |
+    *- 登入/登出
+```
 
 ## 功能
 * 首頁顯示最新發表之文章
@@ -13,65 +43,49 @@
 * 文章分類功能，點擊導覽列分類專區，或文章內之分類連結可顯示該類別所有文章
 * 發布文章功能，管理者於登入狀態下，導覽列顯示發布文章選項，輸入標題、分類、封面圖片網址、內容後，即可新增文章
 * 管理功能，管理者於登入狀態下，進入管理後台，可編輯及刪除文章
-<img width="1041" alt="截圖 2021-09-16 下午2 52 38" src="https://user-images.githubusercontent.com/52143262/133564241-6fcb3309-e912-42b6-a4c8-f50146967d67.png">
-<img width="1041" alt="截圖 2021-09-16 下午2 54 46" src="https://user-images.githubusercontent.com/52143262/133564504-1a458f02-0821-4055-bc02-0c7b7b40301a.png">
-<img width="1041" alt="截圖 2021-09-16 下午2 54 49" src="https://user-images.githubusercontent.com/52143262/133564508-04a3525e-6e88-4c9e-a1bc-5d1e73dbd9fa.png">
-<img width="1041" alt="截圖 2021-09-16 下午2 54 51" src="https://user-images.githubusercontent.com/52143262/133564513-f563c91a-fe49-417e-872a-cc8c1d7aa996.png">
-<img width="1041" alt="截圖 2021-09-16 下午2 54 53" src="https://user-images.githubusercontent.com/52143262/133564515-000a5166-ec54-4e37-9d8e-a25383093462.png">
+* 截圖
 
 ## 使用技術
-* React 搭配 React-router 建立具備會員系統的部落格
-* 串接 Lidemy API
-* 以 JSX 語法撰寫元件
-* 支援 RWD，使用 styled-components 以 Sass 進行排版
-* 使用 React hook 實作功能 
-* 組織 React app 檔案結構
-* Github Pages 部署
-
-可使用 markdown 撰寫文章。
-單一文章選擇多項分類。
-可設定文章發佈或草稿的狀態。
-使用者透過 session 機制登入，密碼經過 hash 處理。
-訪客可在文章底下留言，透過 session 紀錄暱稱。
-可搜尋文章。
-
-AWE EC2 - Ubuntu
-Nginx
-Express
-Sequelize
-Bootstrap
-EJS
-MySQL
-
-## Blog 結構
+* 使用 Node.js Web 應用程式框架 - Express 建立個人部落格
+* 使用 bcrypt 雜湊加密處理密碼 
+* 透過 session 機制登入
+* 使用 middleware 進行權限檢查
+* 實作 MVC 架構
+* 套用 EJS 樣板引擎
+* 使用 ORM 框架 - Sequelize 操作 MySQL 資料庫
+* 使用 Sequelize CLI 建立 Model、設定關聯、執行 Migration
+* 搭配前端框架 - Bootstrap 開發， 支援 RWD
+* 串接 CKEditor 文字編輯器
+* 使用環境變數儲存敏感資訊
+* Heroku 部署
 
 ## 專案結構
-* /src
-  * /components
-    * App.js
-    * Navbar.js
-    * Paginator.js
-    * Post.js
-    * LoginFrom.js
-    * PostForm.js 
-  * /customHooks
-    * useUsers.js
-    * useGetPosts.js
-    * useEditPost.js
-    * usePaginate.js  
-  * /images
-  * /pages 
-    * HomePage.js
-    * LoginPage.js
-    * RegisterPage.js
-    * AboutPage.js
-    * AdminPage.js
-    * AuthorPage.js
-    * PostPage.js
-    * NewPostPage.js
-    * EditPostPage.js
-  * context.js
+* /App
+  * /config
+  * /controllers
+    * user.js
+    * article.js 
+  * /migrations
+  * /models
+    * users.js
+    * articles.js 
+    * index.js
+  * /public
+    * /image 
+  * /views
+    * /template
+      * head.ejs
+      * navbar.ejs 
+      * banner.ejs
+      * bundle.ejs
+    * index.ejs 
+    * register.ejs
+    * login.ejs
+    * about.ejs
+    * admin.ejs
+    * blog.ejs
+    * post.ejs
+    * edit.ejs
+    
   * index.js
-  * utils.js
-  * WebAPI.js
 
