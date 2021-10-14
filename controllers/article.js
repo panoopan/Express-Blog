@@ -9,7 +9,7 @@ const articleController = {
           isDeleted: null,
         },
         order: [["id", "DESC"]],
-        limit: 6,
+        limit: 3,
       });
     } catch (err) {
       return console.log(err);

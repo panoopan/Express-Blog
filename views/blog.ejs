@@ -31,7 +31,9 @@
           <i class="bi-calendar2-week-fill"></i>
           <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
         </p>
-        <div style="white-space: pre-line"><%- article.content %></div>
+        <div style="white-space: pre-line; font-size: 20px">
+          <%- article.content %>
+        </div>
       </div>
     </main>
 

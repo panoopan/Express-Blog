@@ -37,7 +37,6 @@
             <h6 class="card-subtitle mb-2 text-muted">
               <%= (article.createdAt + '').split(' ').slice(0, 4).join(' ') %>
             </h6>
-            <% console.log((article.createdAt + '').split(' ').slice(0, 4)) %>
           </div>
           <div class="flex-shrink-0">
             <a
@@ -55,6 +54,7 @@
       </div>
       <% }) %>
     </section>
+
     <%- include("template/bundle") %>
   </body>
 </html>

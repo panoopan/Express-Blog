@@ -49,12 +49,17 @@
             <% if(article.tag === "那些貓") { %> 
               <%= "selected" %> 
             <% } %>>那些貓
-          </option>
-          <option 
-          <% if(article.tag === "Lego") { %> 
-            <%= "selected" %> 
-          <% } %>>Lego
-        </option>
+            </option>
+            <option 
+              <% if(article.tag === "Lego") { %> 
+                <%= "selected" %> 
+              <% } %>>Lego
+            </option>
+            <option 
+              <% if(article.tag === "其他") { %> 
+                <%= "selected" %> 
+              <% } %>>其他
+            </option>
           </select>
         </div>
 
