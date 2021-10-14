@@ -2,7 +2,7 @@
 使用 Node.js + Express 搭配 Bootstrap 架設個人部落格，進入首頁即可瀏覽最新發表的文章。導覽列項目包含簡介、所有文章、分類專區功能。管理者登入後可發布文章，並進入管理後台進行編輯、刪除文章之操作。
 
 * [Demo](https://myblog-express.herokuapp.com/)
-* gif
+![](https://github.com/panoopan/Express-Blog/blob/master/Demo.gif)
 
 ## Blog 結構
 ```
